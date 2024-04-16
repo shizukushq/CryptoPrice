@@ -1,0 +1,67 @@
+body {
+    background-color: #101010;
+    margin: 0;
+    padding: 56px;
+}
+
+.container {
+    max-width: 750px;
+    margin: auto;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.07);
+    padding: 18px;
+    border-radius: 36px;
+    border: 1px solid rgb(64, 64, 64);
+}
+
+.chart {
+    float: right;
+
+}
+
+.button-reload {
+    float: right;
+    padding: 0px;
+    width: 38px;
+    height: 38px;
+    border-radius: 20px;
+    border: 1px solid rgb(64, 64, 64);
+    background: url("src/images/icon-reload.svg");
+    background-position: center;
+    background-size: 38px 38px;
+    transition-duration: 0.2s;
+}
+
+.button-reload:hover {
+    border: 1px solid rgb(98, 98, 98);
+}
+
+.button-reload:active {
+    position:inherit;
+    bottom: 50;
+    width: 38px;
+    height: 38px;
+    border-radius: 20px;
+    border: 1px solid rgba(64, 64, 64, 0);
+    background: url("src/images/icon-reload.svg");
+    background-position: center;
+    background-size: 38px 38px;
+}
+
+h1 {
+    font-family: "Plus+Jakarta+Sans", sans-serif;
+    font-style: normal;
+    font-weight: 800;
+    color: #ffffff;
+    font-size: 48px;
+    margin: 38;
+}
+
+.price {
+    font-family: "Plus+Jakarta+Sans", sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    margin-top: 20px;
+    font-size: 32px;
+    color: #0098EA;
+}
