@@ -45,7 +45,7 @@ def get_ethereum_price():
     return response['ethereum']['usd']
 
 # Основной маршрут для отображения главной страницы
-@app.route('/ton')
+@app.route('/')
 def TON():
     return render_template('TON.html', ton_price=round(get_ton_price(), 2))
 
