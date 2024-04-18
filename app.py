@@ -19,16 +19,61 @@ def get_ton_price():
     response = requests.get(url, headers=headers, params=params).json()
     return response['the-open-network']['usd']
 
+# Функция для получения цены Bitcoin
+def get_bitcoin_price():
+    url = "https://api.coingecko.com/api/v3/simple/price"
+    headers = {
+        'x-cg-demo-api-key': API_KEY,
+    }
+    params = {
+        'ids': 'bitcoin',
+        'vs_currencies': 'usd'
+    }
+    response = requests.get(url, headers=headers, params=params).json()
+    return response['bitcoin']['usd']
+
+def get_ethereum_price():
+    url = "https://api.coingecko.com/api/v3/simple/price"
+    headers = {
+        'x-cg-demo-api-key': API_KEY,
+    }
+    params = {
+        'ids': 'ethereum',
+        'vs_currencies': 'usd'
+    }
+    response = requests.get(url, headers=headers, params=params).json()
+    return response['ethereum']['usd']
+
 # Основной маршрут для отображения главной страницы
-@app.route('/')
-def index():
-    return render_template('index.html', price=round(get_ton_price(), 2))
+@app.route('/ton')
+def TON():
+    return render_template('TON.html', ton_price=round(get_ton_price(), 2))
+
+@app.route('/bitcoin')
+def BIT():
+    return render_template('BIT.html', bit_price=round(get_bitcoin_price(), 2))
+
+@app.route('/ethereum')
+def ETH():
+    return render_template('ETH.html', eth_price=round(get_ethereum_price(), 2))
 
 # Маршрут для получения цены криптовалюты TON в формате JSON
-@app.route('/get_price')
-def get_price():
+@app.route('/ton_price')
+def ton_price():
     price = round(get_ton_price(), 2)
-    return jsonify({'price': price})
+    return jsonify({'the-open-network': price})
+
+# Маршрут для получения цены криптовалюты Bitcoin в формате JSON
+@app.route('/bit_price')
+def bit_price():
+    price = round(get_bitcoin_price(), 2)
+    return jsonify({'bitcoin': price})
+
+# Маршрут для получения цены криптовалюты Ethereum в формате JSON
+@app.route('/eth_price')
+def eth_price():
+    price = round(get_ethereum_price(), 2)
+    return jsonify({'ethereum': price})
 
 if __name__ == '__main__':
     app.run()

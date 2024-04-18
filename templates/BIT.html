@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://pyscript.net/releases/2024.1.1/core.css"
+    />
+    <script
+      type="module"
+      src="https://pyscript.net/releases/2024.1.1/core.js"
+    ></script>
+    <link
+      rel="icon"
+      href="https://s2.coinmarketcap.com/static/img/coins/64x64/11419.png"
+    />
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="/static/style.css" />
+    <title>Bitcoin Price</title>
+    <style>
+      body {
+        background-color: #101010;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="btns">
+      <a href="/ton" class="btn-ton">Ton</a>
+      <a href="/bitcoin" class="btn-bitcoin">Bitcoin</a>
+      <a href="/ethereum" class="btn-ethereum">Ethereum</a>
+    </div>
+    <div class="container">
+      <div class="card1">
+        <div class="mycont card">
+          <div class="btn">
+            <button
+              type="button"
+              onclick="updatePrice()"
+              class="btn-rld"
+            ></button>
+          </div>
+          <div class="crypto-text">
+            <img
+              src="https://assets.coingecko.com/coins/images/1/standard/bitcoin.png"
+              height="38"
+              width="38"
+              alt="TONlogo"
+              loading="lazy"
+              decoding="async"
+              fetchpriority="low"
+            />
+            <h1 class="crypto-name">Bitcoin</h1>
+          </div>
+          <div class="price-hover">
+            <p class="price" id="bit_price">
+              The current price of Bitcoin is: ${{bit_price}}
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="card2">
+        <script
+          async
+          src="https://static.coinstats.app/widgets/coin-chart-widget.js"
+        ></script>
+        <coin-stats-chart-widget
+          class="widget1"
+          disable-credits="true"
+          type="medium"
+          coin-id="bitcoin"
+          width="772"
+          chart-height="180"
+          currency="USD"
+          locale="en"
+          bg-color="rgba(33,33,33,1)"
+          text-color="#FFFFFF"
+          status-up-color="#74D492"
+          status-down-color="#FE4747"
+          buttons-color="#1C1B1B"
+          chart-color="#0098EA"
+          chart-gradient-from="rgba(0, 152, 234, 0.05);"
+          chart-gradient-to="rgba(0,0,0,0)"
+          chart-label-background="#000000"
+          candle-grids-color="rgba(255,255,255,0.1)"
+          border-color="rgba(64,64,64,1)"
+          font="Arial"
+          style="
+            position: relative;
+            margin-left: auto;
+            margin-left: auto;
+            border-radius: 50%;
+          "
+        >
+        </coin-stats-chart-widget>
+      </div>
+      <div class="card3">
+        <script
+          async
+          src="https://static.coinstats.app/widgets/coin-converter-widget.js"
+        ></script>
+        <coin-stats-converter-widget
+          disable-credits="true"
+          sell-coin-id="bitcoin"
+          buy-coin-id="the-open-network"
+          locale="en"
+          background="#212121"
+          text-color="#FFFFFF"
+          border-color="rgba(64,64,64,1)"
+          rotate-button-color="rgba(255,255,255,0.35)"
+          type="large"
+          font="Arial"
+          width="772"
+          style="
+            position: relative;
+            margin-left: auto;
+            margin-left: auto;
+            border-radius: 36px;
+          "
+        >
+        </coin-stats-converter-widget>
+      </div>
+    </div>
+    <script>
+      const onCardMousemove = (event) => {
+        const $card = event.currentTarget;
+        // Получение координат мыши
+        const rect = $card.getBoundingClientRect();
+        const x = event.clientX - rect.left;
+        const y = event.clientY - rect.top;
+
+        $card.style.setProperty("--mouseX", `${x}px`);
+        $card.style.setProperty("--mouseY", `${y}px`);
+      };
+      document
+        .querySelector(".card")
+        .addEventListener("mousemove", onCardMousemove);
+    </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      function updatePrice() {
+        $.get("/bit_price", function (data) {
+          $("#price").text("The current price of TON is: $" + data.price);
+        });
+      }
+      setInterval(updatePrice, 10000); // Обновление каждые 10 секунд
+    </script>
+  </body>
+</html>

@@ -1,90 +1,168 @@
-body {
-    background-color: #101010;
-    margin: 0;
-    padding: 56px;
-}
-
 .container {
-    max-width: 732px;
-    margin: auto;
-    text-align: center;
-    background: rgba(255, 255, 255, 0.07);
-    padding: 18px;
-    border-radius: 36px;
-    border: 1px solid rgb(64, 64, 64);
+  position: relative;
+  padding: 36px;
 }
 
-.charts {
-    font-family: "Plus+Jakarta+Sans", sans-serif;
-    font-style: normal;
-    position: absolute;
-    width: 772px;
-    margin-top: 15px;
-    /* top:  72px; */
-    left: 50%;
-    transform: translate(-50%,-50%);
-    text-align: center;
+.widget1 {
+  box-sizing: border-box;
+  max-width: 772px;
+  border-radius: 36px;
 }
 
-.mainbody {
-    width: 772px;
-    height: 772px;
+.mycont {
+  max-width: 732px;
+  margin: auto;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.07);
+  padding: 18px;
+  border-radius: 36px;
+  border: 1px solid rgb(64, 64, 64);
+  transition-duration: 0.35s;
 }
 
-.main {
-    width: 772px;
-    margin-left: auto;
-    margin-right: auto;
+.card1 {
+  max-width: 732px;
+  margin: auto;
+  z-index: 0;
 }
 
-element.style {
-    border-radius: 20px;
-}
-/* .widget {
-    ;
-} */
-
-.button-reload {
-    float: right;
-    padding: 0px;
-    width: 38px;
-    height: 38px;
-    border-radius: 20px;
-    border: 1px solid rgb(64, 64, 64);
-    background: url("src/images/icon-reload.svg");
-    background-position: center;
-    background-size: 38px 38px;
-    transition-duration: 0.2s;
+.card2 {
+  max-width: 732px;
+  margin-left: auto;
+  margin-left: auto;
+  margin: auto;
+  margin-top: 28px;
 }
 
-.button-reload:hover {
-    border: 1px solid rgb(98, 98, 98);
+.card3 {
+  max-width: 732px;
+  margin-left: auto;
+  margin-left: auto;
+  margin: auto;
+  margin-top: 28px;
 }
 
-.button-reload:active {
-    width: 38px;
-    height: 38px;
-    border-radius: 20px;
-    border: 1px solid rgba(64, 64, 64, 0);
-    background: url("src/images/icon-reload.svg");
-    background-position: center;
-    background-size: 38px 38px;
+.card {
+  position: relative;
+  z-index: 0;
+  border-radius: 36px;
+}
+.card:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: radial-gradient(
+    50em circle at var(--mouseX) var(--mouseY),
+    rgba(255, 255, 255, 0.05),
+    transparent 50%
+  );
+  opacity: 0;
+  transition: 0.7s;
+  border-radius: 36px;
+}
+.card:hover:after {
+  opacity: 1;
+  border-radius: 36px;
 }
 
-h1 {
-    font-family: "Plus+Jakarta+Sans", sans-serif;
-    font-style: normal;
-    font-weight: 800;
-    color: #ffffff;
-    font-size: 48px;
-    margin: 38;
+.btns {
+  text-align: center;
+  margin-top: 36px;
+}
+
+.btn-ton,
+.btn-bitcoin,
+.btn-ethereum {
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  margin-right: 0.3em;
+  text-decoration: none;
+  color: white;
+  font-family: "Plus+Jakarta+Sans", sans-serif;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 24px;
+  background-color: rgba(255, 255, 255, 0.07);
+  border-radius: 18px;
+  border: 1px solid rgb(64, 64, 64);
+  transition: 0.4s;
+}
+
+.btn-ton:hover,
+.btn-bitcoin:hover,
+.btn-ethereum:hover {
+  /* box-shadow: 0px 4px 8px rgba(255, 255, 255, 0.1); */
+  border: 1px solid rgb(90, 90, 90);
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+.btn {
+  width: 38px;
+  height: 38px;
+  /* margin-top: 18px;
+  margin-right: 18px; */
+  float: right;
+  z-index: 3;
+}
+
+.btn-rld {
+  /* margin-top: 18px;
+  margin-right: 18px;
+  float: right; */
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid rgb(64, 64, 64);
+  background: url("src/images/icon-reload.svg");
+  background-position: center;
+  background-size: 44px 44px;
+  background-repeat: no-repeat;
+  transition-duration: 0.3s;
+}
+
+.btn-rld:hover {
+  /* box-shadow: 0px 4px 8px rgba(255, 255, 255, 0.1); */
+  border: 1px solid rgb(90, 90, 90);
+  background-size: 48px 48px;
+}
+
+.btn-rld:active {
+  width: 38px;
+  height: 38px;
+  border-radius: 20px;
+  border: 1px solid rgba(64, 64, 64, 0);
+  background: url("src/images/icon-reload.svg");
+  background-position: center;
+  background-size: 40px 40px;
+  /* box-shadow: 0px 5px 5px rgba(255, 255, 255, 0); */
+}
+
+.crypto-text {
+  position: relative;
+  text-align: center;
+  display: flex;
+}
+
+.crypto-name {
+  font-family: "Plus+Jakarta+Sans", sans-serif;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 48px;
+  color: white;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 40px;
+  margin-bottom: 0.5em;
 }
 
 .price {
-    font-family: "Plus+Jakarta+Sans", sans-serif;
-    font-style: normal;
-    font-weight: 600;
-    margin-top: 20px;
-    font-size: 28px;
-    color: #0098EA;
+  font-family: "Plus+Jakarta+Sans", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 28px;
+  color: #0098ea;
+  margin: auto;
 }
