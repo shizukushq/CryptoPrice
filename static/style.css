@@ -7,6 +7,10 @@
   user-select: none;
 }
 
+body {
+  margin: 0;
+}
+
 .container {
   position: relative;
   padding: 36px;
@@ -15,6 +19,10 @@
 .mainPagecontainer {
   position: relative;
   padding: 36px;
+  max-height: 100vh;
+  /* display: flex;
+  align-items: center;
+  height: auto; */
 }
 
 .widget1 {
@@ -48,12 +56,81 @@
   background: #637be915;
 }
 
+.divloginbtn {
+  margin-top: 1em;
+}
+
+.btn-login {
+  display: inline-block;
+  padding-top: 0.3em;
+  padding-bottom: 0.3em;
+  padding-left: 0.8em;
+  padding-right: 0.8em;
+  margin-right: 0.3em;
+  text-decoration: none;
+  color: white;
+  font-family: "Plus+Jakarta+Sans", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  background-color: rgba(255, 255, 255, 0.07);
+  border-radius: 20px;
+  border: 1px solid rgb(64, 64, 64);
+  transition: 350ms;
+}
+
+.btn-login:hover {
+  background-color: rgb(128, 128, 128);
+  /* color: white; */
+}
+
+.logintxt {
+  color: white;
+  font-family: "Plus+Jakarta+Sans", sans-serif;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 36px;
+  margin-bottom: 1em;
+}
+
+.input {
+  margin-top: 1em;
+  text-align: initial;
+  display: block;
+  outline: none;
+  word-break: break-word;
+  overflow: visible;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0.6em;
+  border: 1px solid rgb(64, 64, 64);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.07);
+  color: rgb(255, 255, 255);
+  font-family: "Plus+Jakarta+Sans", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  transition: 200ms ease;
+}
+
+.input:hover {
+  border-color: rgb(128, 128, 128);
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.06);
+}
+
+.input:focus {
+  border-color: rgb(128, 128, 128);
+  box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.06);
+}
+
 .logincard {
   max-width: 512px;
   margin: auto;
+  margin-top: 24vh;
   text-align: center;
   background: rgba(255, 255, 255, 0.07);
-  padding: 18px;
+  padding: 24px;
   border-radius: 36px;
   border: 1px solid rgb(64, 64, 64);
   transition-duration: 0.35s;
