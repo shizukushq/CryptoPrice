@@ -46,13 +46,13 @@ def get_ethereum_price():
 
 # Основной маршрут для отображения главной страницы
 @app.route('/')
+def mainPage():
+    return render_template('main.html')
+
+# Основной маршрут для отображения страницы с курсом TON
+@app.route('/ton')
 def TON():
     return render_template('TON.html', ton_price=round(get_ton_price(), 2))
-
-# # Основной маршрут для отображения страницы с курсом TON
-# @app.route('/ton')
-# def TON():
-#     return render_template('TON.html', ton_price=round(get_ton_price(), 2))
 
 # Основной маршрут для отображения страницы с курсом Bitcoin
 @app.route('/bitcoin')

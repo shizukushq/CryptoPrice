@@ -12,6 +12,11 @@
   padding: 36px;
 }
 
+.mainPagecontainer {
+  position: relative;
+  padding: 36px;
+}
+
 .widget1 {
   box-sizing: border-box;
   max-width: 772px;
@@ -41,6 +46,17 @@
 
 .myconteth:hover {
   background: #637be915;
+}
+
+.logincard {
+  max-width: 512px;
+  margin: auto;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.07);
+  padding: 18px;
+  border-radius: 36px;
+  border: 1px solid rgb(64, 64, 64);
+  transition-duration: 0.35s;
 }
 
 .card1 {
