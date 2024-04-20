@@ -49,10 +49,17 @@ def get_ethereum_price():
 def TON():
     return render_template('TON.html', ton_price=round(get_ton_price(), 2))
 
+# # Основной маршрут для отображения страницы с курсом TON
+# @app.route('/ton')
+# def TON():
+#     return render_template('TON.html', ton_price=round(get_ton_price(), 2))
+
+# Основной маршрут для отображения страницы с курсом Bitcoin
 @app.route('/bitcoin')
 def BIT():
     return render_template('BIT.html', bit_price=round(get_bitcoin_price(), 2))
 
+# Основной маршрут для отображения страницы с курсом Ethereum
 @app.route('/ethereum')
 def ETH():
     return render_template('ETH.html', eth_price=round(get_ethereum_price(), 2))
