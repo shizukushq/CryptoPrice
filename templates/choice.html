@@ -20,31 +20,15 @@
     </style>
   </head>
   <body>
-    <div class="mainPagecontainer">
-      <div class="logincard glow-on-hover">
-        <h1 class="logintxt">SIGN IN</h1>
-        <div class="inputsss">
-          <form method="POST" action="/choice">
-            <input
-              class="input"
-              type="text"
-              placeholder="Username"
-              name="username"
-            />
-            <input
-              class="input"
-              type="password"
-              placeholder="Password"
-              name="pass"
-            />
-            <div class="divloginbtn">
-              <input type="submit" class="btn-login" value="Enter" />
-            </div>
-          </form>
-        </div>
-        <!-- <div class="divloginbtn">
-          <a href="" class="btn-login">Enter</a>
-        </div> -->
+    <div class="flexcontainer">
+      <div class="choiceton" onclick="document.location.replace('/ton');">
+        <a class="choicetxt">TON</a>
+      </div>
+      <div class="choicebit" onclick="document.location.replace('/bitcoin');">
+        <a class="choicetxt">BIT</a>
+      </div>
+      <div class="choiceeth" onclick="document.location.replace('/ethereum');">
+        <a class="choicetxt">ETH</a>
       </div>
     </div>
   </body>

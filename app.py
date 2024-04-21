@@ -1,4 +1,4 @@
-from flask import Flask, render_template, jsonify
+from flask import Flask, render_template, jsonify, request
 import requests
 
 app = Flask(__name__)
@@ -45,9 +45,22 @@ def get_ethereum_price():
     return response['ethereum']['usd']
 
 # Основной маршрут для отображения главной страницы
-@app.route('/')
+@app.route('/', methods=['POST', 'GET'])
 def mainPage():
     return render_template('main.html')
+
+@app.route('/choice', methods=['POST', 'GET'])
+def log():
+    usr = request.form['username']
+    password = request.form['pass']
+    if usr == "Shizuku" and password == "123":
+        return render_template('choice.html')
+    else:
+        return render_template('main.html')
+
+@app.route('/choice')
+def choice():
+    return render_template('choice.html')
 
 # Основной маршрут для отображения страницы с курсом TON
 @app.route('/ton')
